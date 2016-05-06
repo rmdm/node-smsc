@@ -4,5 +4,11 @@
   "description": "Convenient wrapper of http/https smsc api.",
   "main": "lib/index.js",
   "author": "rmdm",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "promise": "^7.1.1"
+  }
 }
