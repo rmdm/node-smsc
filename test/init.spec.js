@@ -1,9 +1,9 @@
 before(function () {
-	try {
-		var config = require('./config')
-	} catch (e) {
-		throw e
-	}
+    try {
+        var config = require('./config')
+    } catch (e) {
+        throw e
+    }
 
-	GLOBAL.smsc = require('../')(config)
+    GLOBAL.smsc = require('../')(config)
 })
