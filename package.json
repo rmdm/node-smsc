@@ -2,13 +2,19 @@
   "name": "node-smsc",
   "version": "0.0.1",
   "description": "Convenient wrapper of http/https smsc api.",
-  "main": "lib/index.js",
+  "main": "index.js",
   "author": "rmdm",
   "license": "MIT",
+  "scripts": {
+    "test": "node_modules/.bin/_mocha --recursive test"
+  },
   "engines": {
     "node": ">=0.10.0"
   },
   "dependencies": {
     "promise": "^7.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }
