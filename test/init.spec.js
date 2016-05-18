@@ -5,5 +5,6 @@ before(function () {
         throw e
     }
 
-    GLOBAL.smsc = require('../')(config)
+    GLOBAL.smsc = require('../')(config.init)
+    GLOBAL.phone = config.phone
 })
