@@ -1,16 +1,17 @@
-describe('send api call', function () {
+describe('jobs api call', function () {
 
     var assert = require('assert')
     var fs = require('fs')
     var FormData = require('form-data')
 
+    it.only('creates a job', function () {
 
-    it('sends specific message to specific receivers', function () {
-
-        return smsc.send({
+        return smsc.jobs({
             query: {
                 phones: phone,
                 mes: 'hello!',
+                name: 'Тестовая рассылка',
+                add: 1,
             }
         })
         .then(function (response) {
@@ -21,11 +22,13 @@ describe('send api call', function () {
 
     it('allows to set id on message', function () {
 
-        return smsc.send({
+        return smsc.jobs({
             query: {
                 phones: phone,
                 mes: 'how are you?',
                 id: 10,
+                name: 'Тестовая рассылка',
+                add: 1,
             }
         })
         .then(function (response) {
@@ -45,10 +48,12 @@ describe('send api call', function () {
         message = new Array(threshold * n / message.length + message.length)
             .join(message)
 
-        return smsc.send({
+        return smsc.jobs({
             query: {
                 phones: phone,
                 mes: message,
+                name: 'Тестовая рассылка',
+                add: 1,
             }
         })
         .then(function (response) {
@@ -64,11 +69,13 @@ describe('send api call', function () {
         formData.append('redsquare',
             fs.createReadStream(__dirname + '/../fixtures/redsquare.jpg'))
 
-        return smsc.send({
+        return smsc.jobs({
             query: {
                 phones: phone,
                 mms: 1,
                 mes: 'that\'s me!',
+                name: 'Тестовая рассылка',
+                add: 1,
             },
             request: {
                 method: 'POST',
@@ -89,13 +96,15 @@ describe('send api call', function () {
         formData.append('redsquare',
             fs.createReadStream(__dirname + '/../fixtures/redsquare.jpg'))
 
-        return smsc.send({
+        return smsc.jobs({
             query: {
                 phones: 'mail@example.com',
                 mail: 1,
                 mes: 'that\'s me!<file 1>',
                 subj: 'Me!',
                 sender: 'mail@example.com',
+                name: 'Тестовая рассылка',
+                add: 1,
             },
             request: {
                 method: 'POST',
