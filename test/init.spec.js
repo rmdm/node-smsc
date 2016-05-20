@@ -7,4 +7,5 @@ before(function () {
 
     GLOBAL.smsc = require('../')(config.init)
     GLOBAL.phone = config.phone
+    GLOBAL.email = config.email
 })

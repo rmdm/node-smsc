@@ -82,7 +82,7 @@ describe('send api call', function () {
 
     })
 
-    it.skip('allows to send email messages', function () {
+    it('allows to send email messages', function () {
 
         var formData = new FormData()
 
@@ -95,7 +95,7 @@ describe('send api call', function () {
                 mail: 1,
                 mes: 'that\'s me!<file 1>',
                 subj: 'Me!',
-                sender: 'mail@example.com',
+                sender: email,
             },
             request: {
                 method: 'POST',

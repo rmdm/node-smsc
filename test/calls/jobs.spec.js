@@ -4,7 +4,7 @@ describe('jobs api call', function () {
     var fs = require('fs')
     var FormData = require('form-data')
 
-    it.only('creates a job', function () {
+    it('creates a job', function () {
 
         return smsc.jobs({
             query: {
@@ -15,7 +15,7 @@ describe('jobs api call', function () {
             }
         })
         .then(function (response) {
-            assert.equal(response.cnt, 1)
+            assert(response.id)
         })
 
     })
@@ -32,10 +32,7 @@ describe('jobs api call', function () {
             }
         })
         .then(function (response) {
-            assert.deepEqual(response, {
-                cnt: 1,
-                id: 10,
-            })
+            assert(response.id)
         })
 
     })
@@ -57,7 +54,7 @@ describe('jobs api call', function () {
             }
         })
         .then(function (response) {
-            assert.deepEqual(response.cnt, n)
+            assert(response.id)
         })
 
     })
@@ -89,7 +86,7 @@ describe('jobs api call', function () {
 
     })
 
-    it.skip('allows to send email messages', function () {
+    it('allows to send email messages', function () {
 
         var formData = new FormData()
 
@@ -102,7 +99,7 @@ describe('jobs api call', function () {
                 mail: 1,
                 mes: 'that\'s me!<file 1>',
                 subj: 'Me!',
-                sender: 'mail@example.com',
+                sender: email,
                 name: 'Тестовая рассылка',
                 add: 1,
             },
