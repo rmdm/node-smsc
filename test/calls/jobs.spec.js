@@ -1,6 +1,5 @@
 describe('jobs api call', function () {
 
-    var assert = require('assert')
     var fs = require('fs')
     var FormData = require('form-data')
 
@@ -59,7 +58,7 @@ describe('jobs api call', function () {
 
     })
 
-    it('allows to send mms messages', function () {
+    it.skip('allows to send mms messages', function () {
 
         var formData = new FormData()
 
@@ -86,7 +85,7 @@ describe('jobs api call', function () {
 
     })
 
-    it('allows to send email messages', function () {
+    it.skip('allows to send email messages', function () {
 
         var formData = new FormData()
 

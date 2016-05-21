@@ -1,9 +1,19 @@
 describe('send api call', function () {
 
-    var assert = require('assert')
     var fs = require('fs')
     var FormData = require('form-data')
 
+    var messageId
+
+    afterEach(function () {
+        return smsc.status({
+            query: {
+                del: 1,
+                id: messageId,
+                phone: phone,
+            }
+        })
+    })
 
     it('sends specific message to specific receivers', function () {
 
@@ -14,7 +24,9 @@ describe('send api call', function () {
             }
         })
         .then(function (response) {
+            assert(response.id)
             assert.equal(response.cnt, 1)
+            messageId = response.id
         })
 
     })
@@ -33,6 +45,7 @@ describe('send api call', function () {
                 cnt: 1,
                 id: 10,
             })
+            messageId = response.id
         })
 
     })
@@ -52,7 +65,9 @@ describe('send api call', function () {
             }
         })
         .then(function (response) {
-            assert.deepEqual(response.cnt, n)
+            assert(response.id)
+            assert.equal(response.cnt, 5)
+            messageId = response.id
         })
 
     })
@@ -77,7 +92,9 @@ describe('send api call', function () {
             requestBodyStream: formData,
         })
         .then(function (response) {
+            assert(response.id)
             assert.equal(response.cnt, 1)
+            messageId = response.id
         })
 
     })
@@ -104,7 +121,9 @@ describe('send api call', function () {
             requestBodyStream: formData,
         })
         .then(function (response) {
+            assert(response.id)
             assert.equal(response.cnt, 1)
+            messageId = response.id
         })
 
     })
