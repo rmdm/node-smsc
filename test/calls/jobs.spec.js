@@ -3,6 +3,17 @@ describe('jobs api call', function () {
     var fs = require('fs')
     var FormData = require('form-data')
 
+    var jobId
+
+    afterEach(function () {
+        return smsc.jobs({
+            query: {
+                del: 1,
+                id: jobId,
+            }
+        })
+    })
+
     it('creates a job', function () {
 
         return smsc.jobs({
@@ -15,8 +26,35 @@ describe('jobs api call', function () {
         })
         .then(function (response) {
             assert(response.id)
+            jobId = response.id
         })
 
+    })
+
+    it('allows to cancel a job', function () {
+        return smsc.jobs({
+            query: {
+                phones: phone,
+                mes: 'hi!',
+                name: 'Тестовая рассылка',
+                add: 1,
+            }
+        })
+        .then(function (response) {
+            assert(response.id)
+            jobId = response.id
+        })
+        .then(function () {
+            return smsc.jobs({
+                query: {
+                    cancel: 1,
+                    id: jobId,
+                }
+            })
+        })
+        .then(function (response) {
+            assert.equal(response.result, 'OK')
+        })
     })
 
     it('allows to set id on message', function () {
@@ -32,6 +70,7 @@ describe('jobs api call', function () {
         })
         .then(function (response) {
             assert(response.id)
+            jobId = response.id
         })
 
     })
@@ -54,6 +93,7 @@ describe('jobs api call', function () {
         })
         .then(function (response) {
             assert(response.id)
+            jobId = response.id
         })
 
     })
@@ -80,7 +120,9 @@ describe('jobs api call', function () {
             requestBodyStream: formData,
         })
         .then(function (response) {
+            assert(response.id)
             assert.equal(response.cnt, 1)
+            jobId = response.id
         })
 
     })
@@ -109,7 +151,9 @@ describe('jobs api call', function () {
             requestBodyStream: formData,
         })
         .then(function (response) {
+            assert(response.id)
             assert.equal(response.cnt, 1)
+            jobId = response.id
         })
 
     })

@@ -35,7 +35,7 @@ describe('status api call', function () {
             }
         })
         .then(function (response) {
-            assert.equal(response.OK, true)
+            assert.equal(response.result, 'OK')
         })
     })
 

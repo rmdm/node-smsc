@@ -38,7 +38,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
@@ -69,7 +69,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
@@ -81,7 +81,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
@@ -169,7 +169,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
@@ -183,7 +183,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
@@ -196,7 +196,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
@@ -209,7 +209,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
@@ -221,7 +221,7 @@ describe('phones api call', function () {
                 }
             })
             .then(function (response) {
-                assert.equal(response.OK, true)
+                assert.equal(response.result, 'OK')
             })
         })
 
