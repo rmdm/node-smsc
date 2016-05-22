@@ -1,12 +1,13 @@
 describe('status api call', function () {
 
     var messageId
+    var count = 0
 
-    before(function () {
+    beforeEach(function () {
         return smsc.send({
             query: {
                 phones: phone,
-                mes: 'ПРОВЕРКА',
+                mes: 'ПРОВЕРКА ' + count++,
             }
         })
         .then(function (response) {
@@ -14,29 +15,51 @@ describe('status api call', function () {
         })
     })
 
-    it('allows to check a message status', function () {
-        return smsc.status({
-            query: {
-                id: messageId,
-                phone: phone,
-            }
+    context('message check', function () {
+
+        afterEach(function () {
+            return smsc.status({
+                query: {
+                    del: 1,
+                    id: messageId,
+                    phone: phone,
+                }
+            })
         })
-        .then(function (response) {
-            assert.notEqual(response.status, undefined)
+
+        it('allows to check a message status', function () {
+
+            return smsc.status({
+                query: {
+                    id: messageId,
+                    phone: phone,
+                }
+            })
+            .then(function (response) {
+                assert.notEqual(response.status, undefined)
+            })
+
         })
+
     })
 
-    it('allows to delete a message from messages history', function () {
-        return smsc.status({
-            query: {
-                del: 1,
-                id: messageId,
-                phone: phone,
-            }
+    context('message drop', function () {
+
+        it('allows to delete a message from messages history', function () {
+
+            return smsc.status({
+                query: {
+                    del: 1,
+                    id: messageId,
+                    phone: phone,
+                }
+            })
+            .then(function (response) {
+                assert.equal(response.result, 'OK')
+            })
+
         })
-        .then(function (response) {
-            assert.equal(response.result, 'OK')
-        })
+
     })
 
 })
