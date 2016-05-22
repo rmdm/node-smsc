@@ -6,7 +6,7 @@
   "author": "rmdm",
   "license": "MIT",
   "scripts": {
-    "test": "node_modules/.bin/_mocha --recursive test"
+    "test": "node_modules/.bin/_mocha --recursive test --timeout 100000"
   },
   "engines": {
     "node": ">=0.10.0"
