@@ -98,7 +98,7 @@ describe('jobs api call', function () {
 
     })
 
-    it.skip('allows to send mms messages', function () {
+    it('allows to send mms messages', function () {
 
         var formData = new FormData()
 
@@ -121,13 +121,12 @@ describe('jobs api call', function () {
         })
         .then(function (response) {
             assert(response.id)
-            assert.equal(response.cnt, 1)
             jobId = response.id
         })
 
     })
 
-    it.skip('allows to send email messages', function () {
+    it('allows to send email messages', function () {
 
         var formData = new FormData()
 
@@ -152,7 +151,6 @@ describe('jobs api call', function () {
         })
         .then(function (response) {
             assert(response.id)
-            assert.equal(response.cnt, 1)
             jobId = response.id
         })
 
