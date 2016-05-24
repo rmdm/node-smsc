@@ -1,7 +1,6 @@
 describe('send api call', function () {
 
     var fs = require('fs')
-    var FormData = require('form-data')
 
     var messageId
 
@@ -74,10 +73,7 @@ describe('send api call', function () {
 
     it('allows to send mms messages', function () {
 
-        var formData = new FormData()
-
-        formData.append('redsquare',
-            fs.createReadStream(__dirname + '/../fixtures/redsquare.jpg'))
+        // see jobs.spec.js for another example of sending files
 
         return smsc.send({
             query: {
@@ -85,11 +81,12 @@ describe('send api call', function () {
                 mms: 1,
                 mes: 'that\'s me!',
             },
-            request: {
-                method: 'POST',
-                headers: formData.getHeaders(),
-            },
-            requestBodyStream: formData,
+            files: [
+                {
+                    field: 'redsquare',
+                    value: fs.createReadStream(__dirname + '/../fixtures/redsquare.jpg')
+                }
+            ]
         })
         .then(function (response) {
             assert(response.id)
@@ -101,11 +98,6 @@ describe('send api call', function () {
 
     it('allows to send email messages', function () {
 
-        var formData = new FormData()
-
-        formData.append('redsquare',
-            fs.createReadStream(__dirname + '/../fixtures/redsquare.jpg'))
-
         return smsc.send({
             query: {
                 phones: 'mail@example.com',
@@ -114,11 +106,12 @@ describe('send api call', function () {
                 subj: 'Me!',
                 sender: email,
             },
-            request: {
-                method: 'POST',
-                headers: formData.getHeaders(),
-            },
-            requestBodyStream: formData,
+            files: [
+                {
+                    field: 'redsquare',
+                    value: fs.createReadStream(__dirname + '/../fixtures/redsquare.jpg')
+                }
+            ]
         })
         .then(function (response) {
             assert(response.id)

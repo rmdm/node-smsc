@@ -100,6 +100,8 @@ describe('jobs api call', function () {
 
     it('allows to send mms messages', function () {
 
+        // see send.spec.js for another example of sending files
+
         var formData = new FormData()
 
         formData.append('redsquare',
