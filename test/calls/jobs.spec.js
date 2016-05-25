@@ -128,7 +128,9 @@ describe('jobs api call', function () {
 
     })
 
-    it('allows to send email messages', function () {
+    // smsc's test mode doesn't span on email messages
+
+    it.skip('allows to send email messages', function () {
 
         var formData = new FormData()
 

@@ -1,24 +1,24 @@
-describe.skip('users api call', function () {
+/*
+ *  All of the test cases here are disabled because smsc's API does not provide
+ *  a call to drop a user and has strict restirctions on frequency of calls.
+ *  Plus, at the moment of writing, there was problems with "pay" API call.
+ */
+
+describe('users api call', function () {
+
+    var variation = 0
 
     context('user creation', function () {
 
-        // var userId
+        it.skip('allows to create a subclient', function () {
 
-        // afterEach(function () {
-        //     return smsc.users({
-        //         query: {
-        //             del: 1,
-        //             id: userId,
-        //         }
-        //     })
-        // })
+            variation++
 
-        it('allows to create subclient', function () {
             return smsc.users({
                 query: {
                     add: 1,
-                    user: sublogin,
-                    password: subpassword,
+                    user: sublogin + variation,
+                    password: subpassword + variation,
                 }
             })
             .then(function (response) {
@@ -31,35 +31,29 @@ describe.skip('users api call', function () {
 
     context('user manipulation', function () {
 
-        // var userId
+        var userId
 
-        // beforeEach(function () {
-        //     return smsc.users({
-        //         query: {
-        //             add: 1,
-        //             user: sublogin,
-        //             password: subpassword,
-        //         }
-        //     })
-        //     .then(function (response) {
-        //         userId = response.id
-        //     })
-        // })
+        beforeEach(function () {
 
-        // afterEach(function () {
-        //     return smsc.users({
-        //         query: {
-        //             del: 1,
-        //             id: userId,
-        //         }
-        //     })
-        // })
+            variation++
 
-        it('allows to change sublient settings', function () {
+            return smsc.users({
+                query: {
+                    add: 1,
+                    user: sublogin + variation,
+                    password: subpassword + variation,
+                }
+            })
+            .then(function (response) {
+                userId = response.id
+            })
+        })
+
+        it.skip('allows to change a sublient\'s settings', function () {
             return smsc.users({
                 query: {
                     chg: 1,
-                    user: sublogin,
+                    user: sublogin + variation,
                     fio: 'User From Test',
                 }
             })
@@ -68,28 +62,28 @@ describe.skip('users api call', function () {
             })
         })
 
-        // it('allows to change subclient balance', function () {
-        //     return smsc.users({
-        //         query: {
-        //             pay: 1,
-        //             user: sublogin,
-        //             sum: '0.01',
-        //         }
-        //     })
-        //     .then(function (response) {
-        //         console.log(response)
-        //     })
-        // })
-
-        it('allows to get subclient stats', function () {
+        it.skip('allows to change a subclient\'s balance', function () {
             return smsc.users({
                 query: {
-                    get_stat: 1,
-                    user: sublogin,
+                    pay: 1,
+                    user: sublogin + variation,
+                    sum: '0.01',
                 }
             })
             .then(function (response) {
                 console.log(response)
+            })
+        })
+
+        it.skip('allows to get a subclient\'s stats', function () {
+            return smsc.users({
+                query: {
+                    get_stat: 1,
+                    user: sublogin + variation,
+                }
+            })
+            .then(function (response) {
+                assert.deepEqual(response, [])
             })
         })
 
