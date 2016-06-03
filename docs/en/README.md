@@ -112,6 +112,6 @@ mode on, sms will go to this number.
 set you email addres in you profile. Test mode does not span on email messages,
 by this reason corresponding tests are disabled by default.
 - `sublogin` - test subclient login. All tests on subclients are disabled by
-default, because there is no teardown support in API/
+default, because there is no teardown support from API.
 - `subpassword` - subclient password
 
