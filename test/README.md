@@ -1,9 +1,5 @@
-Prerequisites
-=============
+Tests documentation
+-------------------
 
-* Enable test mode in your smsc account.
-* Create ./config.json file with the following fields:
-
-    - __init__ - contains the same fields as main smsc function accepts
-    - __phone__ - a phone number to use in tests
-
+[RU](../docs/ru/README.md#Тесты)
+[RU](../docs/ru/README.md#Tests)

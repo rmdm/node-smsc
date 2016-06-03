@@ -7,3 +7,4 @@ Documentation
 -------------
 
 [RU](./docs/ru/README.md)
+[EN](./docs/en/README.md)
