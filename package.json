@@ -1,16 +1,27 @@
 {
   "name": "node-smsc",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Convenient wrapper of http/https smsc api.",
   "main": "index.js",
   "author": "rmdm",
   "license": "MIT",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/rmdm/node-smsc.git"
+  },
+  "bugs": "https://github.com/rmdm/node-smsc/issues",
   "scripts": {
     "test": "node_modules/.bin/_mocha --recursive test --timeout 100000"
   },
   "engines": {
     "node": ">=0.10.0"
   },
+  "keywords": [
+    "smsc",
+    "sms",
+    "api"
+  ],
   "dependencies": {
     "form-data": "^1.0.0-rc4",
     "promise": "^7.1.1"
