@@ -1,0 +1,11 @@
+{
+    "init": {
+        "login": "",
+        "password": "",
+        "hashed": false
+    },
+    "phone": "",
+    "email": "",
+    "sublogin": "",
+    "subpassword": ""
+}
