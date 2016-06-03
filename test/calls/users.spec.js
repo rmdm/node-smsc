@@ -15,11 +15,9 @@ describe('users api call', function () {
             variation++
 
             return smsc.users({
-                query: {
-                    add: 1,
-                    user: sublogin + variation,
-                    password: subpassword + variation,
-                }
+                add: 1,
+                user: sublogin + variation,
+                password: subpassword + variation,
             })
             .then(function (response) {
                 assert(response.id)
@@ -38,11 +36,9 @@ describe('users api call', function () {
             variation++
 
             return smsc.users({
-                query: {
-                    add: 1,
-                    user: sublogin + variation,
-                    password: subpassword + variation,
-                }
+                add: 1,
+                user: sublogin + variation,
+                password: subpassword + variation,
             })
             .then(function (response) {
                 userId = response.id
@@ -51,11 +47,9 @@ describe('users api call', function () {
 
         it.skip('allows to change a sublient\'s settings', function () {
             return smsc.users({
-                query: {
-                    chg: 1,
-                    user: sublogin + variation,
-                    fio: 'User From Test',
-                }
+                chg: 1,
+                user: sublogin + variation,
+                fio: 'User From Test',
             })
             .then(function (response) {
                 assert.equal(response.result, 'OK')
@@ -64,11 +58,9 @@ describe('users api call', function () {
 
         it.skip('allows to change a subclient\'s balance', function () {
             return smsc.users({
-                query: {
-                    pay: 1,
-                    user: sublogin + variation,
-                    sum: '0.01',
-                }
+                pay: 1,
+                user: sublogin + variation,
+                sum: '0.01',
             })
             .then(function (response) {
                 console.log(response)
@@ -77,10 +69,8 @@ describe('users api call', function () {
 
         it.skip('allows to get a subclient\'s stats', function () {
             return smsc.users({
-                query: {
-                    get_stat: 1,
-                    user: sublogin + variation,
-                }
+                get_stat: 1,
+                user: sublogin + variation,
             })
             .then(function (response) {
                 assert.deepEqual(response, [])

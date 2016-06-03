@@ -8,20 +8,16 @@ describe('phones api call', function () {
 
             afterEach(function () {
                 return smsc.phones({
-                    query: {
-                        del: 1,
-                        phone: contactPhone,
-                    }
+                    del: 1,
+                    phone: contactPhone,
                 })
             })
 
             it('allows to create new contact', function () {
                 return smsc.phones({
-                    query: {
-                        add: 1,
-                        phone: contactPhone,
-                        name: 'Contact From Test',
-                    }
+                    add: 1,
+                    phone: contactPhone,
+                    name: 'Contact From Test',
                 })
                 .then(function (response) {
                     assert(response.id)
@@ -37,29 +33,23 @@ describe('phones api call', function () {
 
             before(function () {
                 return smsc.phones({
-                    query: {
-                        add: 1,
-                        phone: contactPhone,
-                        name: 'Contact From Test',
-                    }
+                    add: 1,
+                    phone: contactPhone,
+                    name: 'Contact From Test',
                 })
             })
 
             after(function () {
                 return smsc.phones({
-                    query: {
-                        del: 1,
-                        phone: currentPhone,
-                    }
+                    del: 1,
+                    phone: currentPhone,
                 })
             })
 
             it('allows to add a contact to a blacklist', function () {
                 return smsc.phones({
-                    query: {
-                        add_black: 1,
-                        phone: contactPhone
-                    }
+                    add_black: 1,
+                    phone: contactPhone,
                 })
                 .then(function (response) {
                     assert(response.id)
@@ -69,10 +59,8 @@ describe('phones api call', function () {
 
             it('allows to remove a contact from a blacklist', function () {
                 return smsc.phones({
-                    query: {
-                        del_black: 1,
-                        phone: contactPhone
-                    }
+                    del_black: 1,
+                    phone: contactPhone,
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')
@@ -82,9 +70,7 @@ describe('phones api call', function () {
 
             it('allows to list contacts', function () {
                 return smsc.phones({
-                    query: {
-                        get: 1,
-                    }
+                    get: 1,
                 })
                 .then(function (response) {
                     var contact = {}
@@ -101,11 +87,9 @@ describe('phones api call', function () {
 
             it('allows to change phone number of a contact', function () {
                 return smsc.phones({
-                    query: {
-                        chg: 1,
-                        phone: contactPhone,
-                        new_phone: newContactPhone,
-                    }
+                    chg: 1,
+                    phone: contactPhone,
+                    new_phone: newContactPhone,
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')
@@ -119,20 +103,16 @@ describe('phones api call', function () {
 
             beforeEach(function () {
                 return smsc.phones({
-                    query: {
-                        add: 1,
-                        phone: contactPhone,
-                        name: 'Contact From Test',
-                    }
+                    add: 1,
+                    phone: contactPhone,
+                    name: 'Contact From Test',
                 })
             })
 
             it('allows to drop a contact', function () {
                 return smsc.phones({
-                    query: {
-                        del: 1,
-                        phone: contactPhone,
-                    }
+                    del: 1,
+                    phone: contactPhone,
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')
@@ -153,19 +133,15 @@ describe('phones api call', function () {
 
             afterEach(function () {
                 return smsc.phones({
-                    query: {
-                        del_group: 1,
-                        grp: groupId,
-                    }
+                    del_group: 1,
+                    grp: groupId,
                 })
             })
 
             it('allows to create new contact group', function () {
                 return smsc.phones({
-                    query: {
-                        add_group: 1,
-                        name: 'Group From Test',
-                    }
+                    add_group: 1,
+                    name: 'Group From Test',
                 })
                 .then(function (response) {
                     assert(response.id)
@@ -182,10 +158,8 @@ describe('phones api call', function () {
 
             before(function () {
                 return smsc.phones({
-                    query: {
-                        add_group: 1,
-                        name: 'Group From Test',
-                    }
+                    add_group: 1,
+                    name: 'Group From Test',
                 })
                 .then(function (response) {
                     groupId = response.id
@@ -194,54 +168,42 @@ describe('phones api call', function () {
 
             after(function () {
                 return smsc.phones({
-                    query: {
-                        del_group: 1,
-                        grp: groupId,
-                    }
+                    del_group: 1,
+                    grp: groupId,
                 })
             })
 
             before(function () {
                 return smsc.phones({
-                    query: {
-                        add: 1,
-                        phone: contactPhone,
-                        name: 'Group Contact From Test',
-                    }
+                    add: 1,
+                    phone: contactPhone,
+                    name: 'Group Contact From Test',
                 })
                 .then(function () {
                     return smsc.phones({
-                        query: {
-                            add: 1,
-                            phone: anotherContactPhone,
-                            name: 'Another Group Contact From Test',
-                        }
+                        add: 1,
+                        phone: anotherContactPhone,
+                        name: 'Another Group Contact From Test',
                     })
                 })
             })
 
             after(function () {
                 return smsc.phones({
-                    query: {
-                        del: 1,
-                        phone: contactPhone,
-                    }
+                    del: 1,
+                    phone: contactPhone,
                 })
                 .then(function () {
                     return smsc.phones({
-                        query: {
-                            del: 1,
-                            phone: anotherContactPhone,
-                        }
+                        del: 1,
+                        phone: anotherContactPhone,
                     })
                 })
             })
 
             it('allows to list groups', function () {
                 return smsc.phones({
-                    query: {
-                        get_group: 1,
-                    }
+                    get_group: 1,
                 })
                 .then(function (response) {
                     var group = {}
@@ -257,11 +219,9 @@ describe('phones api call', function () {
 
             it('allows to change contact group name', function () {
                 return smsc.phones({
-                    query: {
-                        chg_group: 1,
-                        grp: groupId,
-                        name: 'From Test Group',
-                    }
+                    chg_group: 1,
+                    grp: groupId,
+                    name: 'From Test Group',
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')
@@ -271,11 +231,9 @@ describe('phones api call', function () {
 
             it('allows to add a contact to a group', function () {
                 return smsc.phones({
-                    query: {
-                        move_group: 1,
-                        grp: groupId,
-                        phone: contactPhone,
-                    }
+                    move_group: 1,
+                    grp: groupId,
+                    phone: contactPhone,
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')
@@ -284,11 +242,9 @@ describe('phones api call', function () {
 
             it('allows to add a group to a contact', function () {
                 return smsc.phones({
-                    query: {
-                        move_group: 2,
-                        grp: groupId,
-                        phone: anotherContactPhone,
-                    }
+                    move_group: 2,
+                    grp: groupId,
+                    phone: anotherContactPhone,
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')
@@ -297,11 +253,9 @@ describe('phones api call', function () {
 
             it('allows to drop a contact from a group', function () {
                 return smsc.phones({
-                    query: {
-                        move_group: 3,
-                        grp: groupId,
-                        phone: contactPhone,
-                    }
+                    move_group: 3,
+                    grp: groupId,
+                    phone: contactPhone,
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')
@@ -316,10 +270,8 @@ describe('phones api call', function () {
 
             beforeEach(function () {
                 return smsc.phones({
-                    query: {
-                        add_group: 1,
-                        name: 'Group From Test',
-                    }
+                    add_group: 1,
+                    name: 'Group From Test',
                 })
                 .then(function (response) {
                     groupId = response.id
@@ -328,10 +280,8 @@ describe('phones api call', function () {
 
             it('allows to drop a group', function () {
                 return smsc.phones({
-                    query: {
-                        del_group: 1,
-                        grp: groupId,
-                    }
+                    del_group: 1,
+                    grp: groupId,
                 })
                 .then(function (response) {
                     assert.equal(response.result, 'OK')

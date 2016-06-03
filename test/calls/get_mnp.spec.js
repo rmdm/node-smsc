@@ -13,13 +13,11 @@ describe('get_mnp api call', function () {
         var today = new Date()
 
         return smsc.get_mnp({
-            query: {
-                date: [
-                    toFixedString(today.getDate(), 2, 2, '0'),
-                    toFixedString(today.getMonth() + 1 % 12, 2, 2, '0'),
-                    today.getFullYear()
-                ].join('.')
-            }
+            date: [
+                toFixedString(today.getDate(), 2, 2, '0'),
+                toFixedString(today.getMonth() + 1 % 12, 2, 2, '0'),
+                today.getFullYear()
+            ].join('.')
         })
         .then(function (response) {
             assert(Array.isArray(response))

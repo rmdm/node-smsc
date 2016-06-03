@@ -3,10 +3,8 @@ describe('info api call', function () {
     it('allows to get operator info about a phone number', function () {
 
         return smsc.info({
-            query: {
-                get_operator: 1,
-                phone: phone,
-            }
+            get_operator: 1,
+            phone: phone,
         })
         .then(function (response) {
             assert(response.country)

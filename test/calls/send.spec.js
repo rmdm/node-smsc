@@ -6,21 +6,17 @@ describe('send api call', function () {
 
     afterEach(function () {
         return smsc.status({
-            query: {
-                del: 1,
-                id: messageId,
-                phone: phone,
-            }
+            del: 1,
+            id: messageId,
+            phone: phone,
         })
     })
 
     it('sends specific message to specific receivers', function () {
 
         return smsc.send({
-            query: {
-                phones: phone,
-                mes: 'hello!',
-            }
+            phones: phone,
+            mes: 'hello!',
         })
         .then(function (response) {
             assert(response.id)
@@ -33,11 +29,9 @@ describe('send api call', function () {
     it('allows to set id on message', function () {
 
         return smsc.send({
-            query: {
-                phones: phone,
-                mes: 'how are you?',
-                id: 10,
-            }
+            phones: phone,
+            mes: 'how are you?',
+            id: 10,
         })
         .then(function (response) {
             assert.deepEqual(response, {
@@ -58,10 +52,8 @@ describe('send api call', function () {
             .join(message)
 
         return smsc.send({
-            query: {
-                phones: phone,
-                mes: message,
-            }
+            phones: phone,
+            mes: message,
         })
         .then(function (response) {
             assert(response.id)
@@ -76,11 +68,11 @@ describe('send api call', function () {
         // see jobs.spec.js for another example of sending files
 
         return smsc.send({
-            query: {
-                phones: phone,
-                mms: 1,
-                mes: 'that\'s me!',
-            },
+            phones: phone,
+            mms: 1,
+            mes: 'that\'s me!',
+        },
+        {
             files: [
                 {
                     field: 'redsquare',
@@ -96,18 +88,18 @@ describe('send api call', function () {
 
     })
 
-    // smsc's test mode doesn't span on email messages
+    // smsc's test mode doesn't span on email messages (i.e. they are paid either way)
 
     it.skip('allows to send email messages', function () {
 
         return smsc.send({
-            query: {
-                phones: 'mail@example.com',
-                mail: 1,
-                mes: 'that\'s me!<file 1>',
-                subj: 'Me!',
-                sender: email,
-            },
+            phones: 'mail@example.com',
+            mail: 1,
+            mes: 'that\'s me!<file 1>',
+            subj: 'Me!',
+            sender: email,
+        },
+        {
             files: [
                 {
                     field: 'redsquare',
