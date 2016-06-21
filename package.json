@@ -1,6 +1,6 @@
 {
   "name": "node-smsc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convenient wrapper of http/https smsc api.",
   "main": "index.js",
   "author": "rmdm",

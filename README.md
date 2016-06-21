@@ -19,6 +19,8 @@ smsc.send({
 })
 ```
 
+For more examples see tests.
+
 Documentation
 -------------
 
