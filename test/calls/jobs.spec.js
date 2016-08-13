@@ -148,4 +148,25 @@ describe('jobs api call', function () {
 
     })
 
+    it('allows to use a template instead of a message', function () {
+        return smsc.templates({
+            add: 1,
+            name: 'job-template',
+            msg: 'Text of the job template.',
+            format: 'sms',
+        })
+        .then(function (template) {
+            return smsc.jobs({
+                phones: phone,
+                tpl: template.id,
+                name: 'Шаблонная рассылка',
+                add: 1,
+            })
+        })
+        .then(function (response) {
+            assert(response.id)
+            jobId = response.id
+        })
+    })
+
 })
