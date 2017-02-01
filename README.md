@@ -9,8 +9,7 @@ Example
 ```javascript
 var smsc = require('node-smsc')({
     login: 'login',
-    password: '5f4dcc3b5aa765d61d8327deb882cf99',
-    hashed: true,
+    password: 'password', // password is md5-hashed implicitly unless "hashed" option is passed.
 })
 
 smsc.send({
