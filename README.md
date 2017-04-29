@@ -15,7 +15,7 @@ var smsc = require('node-smsc')({
 smsc.send({
     phones: '79XXXXXXXXX',
     mes: 'Hello from node-smsc!',
-})
+})  // returns a Promise with send results
 ```
 
 For more examples see tests.

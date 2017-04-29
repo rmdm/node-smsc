@@ -1,11 +1,11 @@
 before(function () {
     var config = require('./config')
 
-    GLOBAL.assert = require('assert')
-    GLOBAL.smsc = require('../')(config.init)
-    GLOBAL.phone = config.phone
-    GLOBAL.email = config.email
+    global.assert = require('assert')
+    global.smsc = require('../')(config.init)
+    global.phone = config.phone
+    global.email = config.email
 
-    GLOBAL.sublogin = config.sublogin
-    GLOBAL.subpassword = config.subpassword
+    global.sublogin = config.sublogin
+    global.subpassword = config.subpassword
 })
