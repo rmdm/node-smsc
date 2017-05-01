@@ -1,7 +1,7 @@
 node-smsc
 =========
 
-Convenient wrapper of http/https smsc api.
+Convenient wrapper of http/https [smsc](https://smsc.ru/) api.
 
 Example
 -------
