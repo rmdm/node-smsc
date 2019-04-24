@@ -23,10 +23,10 @@
     "api"
   ],
   "dependencies": {
-    "form-data": "^1.0.0-rc4",
-    "promise": "^7.1.1"
+    "form-data": "^2.3.3",
+    "promise": "^8.0.3"
   },
   "devDependencies": {
-    "mocha": "^2.4.5"
+    "mocha": "^6.1.4"
   }
 }
