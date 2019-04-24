@@ -1,6 +1,8 @@
 node-smsc
 =========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rmdm/node-smsc.svg)](https://greenkeeper.io/)
+
 Convenient wrapper of http/https [smsc](https://smsc.ru/) api.
 
 Example
